@@ -1,20 +1,17 @@
 package com.wuhall.chapter01;
 
 /**
- * �����͵��߳�ִ�в���
- * 
- * @author tengfei.fangtf
- * @version $Id: ConcurrencyTest.java, v 0.1 2014-7-18 ����10:03:31 tengfei.fangtf Exp $
+ * 对比串行与并发操作的执行时间
+ * 并发 不一定会被串行操作执行的快 由于存在线程创建与上下文切换的开销
  */
 public class ConcurrencyTest {
 
-    /** ִ�д��� */
     private static final long count = 10000l;
 
     public static void main(String[] args) throws InterruptedException {
-        //��������
+        // 并发操作
         concurrency();
-        //���̼߳���
+        // 串行
         serial();
     }
 

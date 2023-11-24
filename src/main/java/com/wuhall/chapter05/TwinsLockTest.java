@@ -3,9 +3,10 @@
  */
 package com.wuhall.chapter05;
 
+import com.wuhall.chapter04.SleepUtils;
+
 import java.util.concurrent.locks.Lock;
 
-import chapter04.SleepUtils;
 
 /**
  * 10-11
