@@ -9,15 +9,12 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * ������
- * 
- * @author tengfei.fangtf
- * @version $Id: Snippet.java, v 0.1 2015-7-31 ����11:32:42 tengfei.fangtf Exp $
+ * 使用循环CAS实现原子操作
  */
 public class Counter {
 
     private AtomicInteger atomicI = new AtomicInteger(0);
-    private int           i       = 0;
+    private int i = 0;
 
     public static void main(String[] args) {
         final Counter cas = new Counter();
@@ -37,9 +34,8 @@ public class Counter {
         }
         for (Thread t : ts) {
             t.start();
-
         }
-        // �ȴ������߳�ִ�����
+
         for (Thread t : ts) {
             try {
                 t.join();
@@ -54,7 +50,7 @@ public class Counter {
     }
 
     /**
-     * ʹ��CASʵ���̰߳�ȫ������
+     * CAS：compare and swap 比较和交换
      */
     private void safeCount() {
         for (;;) {
@@ -67,7 +63,7 @@ public class Counter {
     }
 
     /**
-     * ���̰߳�ȫ������
+     * 线程不安全
      */
     private void count() {
         i++;
