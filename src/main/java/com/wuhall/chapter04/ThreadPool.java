@@ -1,21 +1,21 @@
 package com.wuhall.chapter04;
 
 /**
- * 6-19
+ * 线程池接口定义
  */
 public interface ThreadPool<Job extends Runnable> {
-    // ִ��һ��Job�����Job��Ҫʵ��Runnable
+    // 执行一个Job，这个Job需要实现Runnable
     void execute(Job job);
 
-    // �ر��̳߳�
+    // 关闭线程池
     void shutdown();
 
-    // ���ӹ������߳�
+    // 增加工作者线程
     void addWorkers(int num);
 
-    // ���ٹ������߳�
+    // 减少工作者线程
     void removeWorker(int num);
 
-    // �õ����ڵȴ�ִ�е���������
+    // 得到正在等待执行的任务数量
     int getJobSize();
 }

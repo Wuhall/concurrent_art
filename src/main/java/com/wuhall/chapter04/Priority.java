@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 6-2
+ * 6-2 线程优先级
  */
 public class Priority {
     private static volatile boolean notStart = true;

@@ -1,19 +1,31 @@
 package com.wuhall.chapter03;
 
 class VolatileFeaturesExample1 {
-    long vl = 0L; // 64λ��long����ͨ����
+    // 64bit
+    long vl = 0L;
 
-    public synchronized void set(long l) {//�Ե�������ͨ������д��ͬһ����ͬ��
+    /**
+     * 对单个的普通变量的写使用一个锁同步
+     * @param l
+     */
+    public synchronized void set(long l) {
         vl = l;
     }
 
-    public void getAndIncrement() { //��ͨ��������
-        long temp = get(); //������ͬ���Ķ�����
-        temp += 1L; //��ͨд����
-        set(temp); //������ͬ����д����
+    /**
+     * 普通方法的调用
+     */
+    public void getAndIncrement() {
+        long temp = get();
+        temp += 1L;
+        set(temp);
     }
 
-    public synchronized long get() { //�Ե�������ͨ�����Ķ���ͬһ����ͬ��
+    /**
+     * 对普通变量的读使用一个同步方法
+     * @return
+     */
+    public synchronized long get() {
         return vl;
     }
 }

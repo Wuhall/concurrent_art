@@ -3,10 +3,10 @@ package com.wuhall.chapter04;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 6-15
+ * ThreadLocal，线程变量，以一个ThreadLocal对象为键，任意对象为值的存储结构
  */
 public class Profiler {
-    // ��һ��get()��������ʱ����г�ʼ�������set����û�е��ã���ÿ���̻߳����һ��
+    // 第一次get方法调用时会进行初始化，每个线程会调用一次
     private static final ThreadLocal<Long> TIME_THREADLOCAL = new ThreadLocal<Long>() {
                                                                 protected Long initialValue() {
                                                                     return System.currentTimeMillis();

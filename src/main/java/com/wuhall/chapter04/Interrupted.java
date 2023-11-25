@@ -3,26 +3,26 @@ package com.wuhall.chapter04;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 6-7
+ * 6-7 中断
  */
 public class Interrupted {
 
     public static void main(String[] args) throws Exception {
-        // sleepThread��ͣ�ĳ���˯��
+        // sleepThread不停的尝试睡眠
         Thread sleepThread = new Thread(new SleepRunner(), "SleepThread");
         sleepThread.setDaemon(true);
-        // busyThread��ͣ������
+        // busyThread不停的运行
         Thread busyThread = new Thread(new BusyRunner(), "BusyThread");
         busyThread.setDaemon(true);
         sleepThread.start();
         busyThread.start();
-        // ����5�룬��sleepThread��busyThread�������
+        // 休眠5s 让sleepThread和busyThread充分运行
         TimeUnit.SECONDS.sleep(5);
         sleepThread.interrupt();
         busyThread.interrupt();
         System.out.println("SleepThread interrupted is " + sleepThread.isInterrupted());
         System.out.println("BusyThread interrupted is " + busyThread.isInterrupted());
-        // ��ֹsleepThread��busyThread�����˳�
+        // 防止sleepThread和busyThread立刻退出
         TimeUnit.SECONDS.sleep(2);
     }
 
